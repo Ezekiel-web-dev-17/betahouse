@@ -1,0 +1,52 @@
+.bg-black {
+  background: transparent;
+}
+
+nav {
+  height: 121px;
+  background-color: #1d293f1f;
+  padding-inline: 100px;
+  z-index: 3;
+}
+
+nav ul li {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 50px;
+  letter-spacing: 0%;
+  cursor: pointer;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 3px;
+}
+
+.sign-up {
+  width: 140px;
+  height: 60.999874114990234px;
+  gap: 10px;
+  border-radius: 8px;
+  border-width: 2px;
+  padding: 10px;
+  border: 2px solid #f5f5f5;
+}
+
+.login-btn {
+  width: 140px;
+  height: 60.999874114990234px;
+  border-radius: 8px;
+  padding-top: 7px;
+  padding-right: 10px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  background-color: #3d9970;
+}

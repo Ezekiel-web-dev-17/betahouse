@@ -1,0 +1,91 @@
+.overall {
+  width: 5100px;
+}
+
+.d-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24.12px;
+  width: 100%;
+}
+
+.all {
+  transition: height 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.grd2 {
+  gap: 17px;
+}
+
+.d-grid > div > div {
+  filter: contrast(1.2);
+}
+
+.featured {
+  background: #3d9970;
+  left: 20px;
+}
+
+.for {
+  background: #d3d3d3b2;
+  right: 20px;
+}
+
+.featured,
+.for {
+  max-width: 97px;
+  height: 37px;
+  place-content: center;
+  font-family: Outfit;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 22.4px;
+  top: 18px;
+}
+
+.link-rec-img {
+  display: flex;
+  gap: 30px;
+  left: 230px;
+  bottom: 30px;
+}
+
+.link-rec-img img {
+  background-color: #878787b2;
+  border: 3px solid #858181b2;
+  overflow: visible;
+  border-radius: 4px;
+}
+
+.about-card {
+  border-color: #ddd8d8;
+  border-style: solid;
+  font-family: Outfit;
+  font-size: 14.93px;
+  line-height: 29.87px;
+
+  vertical-align: middle;
+  max-width: 400px;
+}
+
+.about-card h4 {
+  font-family: Outfit;
+  font-weight: 600;
+  font-size: 20.68px;
+  line-height: 24.81px;
+  vertical-align: middle;
+}
+
+.hr {
+  width: 100%;
+  height: 1.15px;
+}
+/* 
+.more {
+  margin-right: -100px;
+}
+
+.more .about-card {
+  margin-left: 180px;
+} */

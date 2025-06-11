@@ -1,0 +1,27 @@
+.signup-form h3 {
+  font-family: Outfit;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.signup-form {
+  color: rgb(41, 40, 40);
+  font-weight: 500;
+}
+
+.checkbox input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox input:checked {
+  accent-color: #3d9970;
+}
+
+/* .signbg {
+  padding-left: 50px;
+} */

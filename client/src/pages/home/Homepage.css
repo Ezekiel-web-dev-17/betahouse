@@ -1,0 +1,99 @@
+.home {
+  overflow-x: hidden;
+}
+
+header {
+  background-image: url("../../utils/herobg.svg");
+  background-size: cover;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 150px;
+}
+
+header h1 {
+  font-family: Outfit;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+header > p {
+  font-family: Outfit;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 160%;
+  text-align: center;
+  padding-inline: 12em;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  width: 1100px;
+  height: 86px;
+  top: 10px;
+  left: -10px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: " ";
+  position: absolute;
+  width: 1152px;
+  height: 135px;
+  background: #c8cfdd48;
+  left: -22px;
+  z-index: -1;
+}
+
+.hero div:last-of-type div {
+  display: flex;
+  gap: 20px;
+}
+
+.hero p,
+.hero h6 {
+  color: #353f50;
+}
+
+.hero div p {
+  color: #787878;
+}
+
+.bedroom-ctrl {
+  cursor: pointer;
+}
+
+.find-prop {
+  background-color: #3d9970;
+  width: 20%;
+  height: 86px;
+  top: 22px;
+  left: 27px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-family: Outfit;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 71.02px;
+}
+
+.caro-discover {
+  overflow-x: hidden;
+}
+
+.discover-sect h2 {
+  font-family: Outfit;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 54px;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
