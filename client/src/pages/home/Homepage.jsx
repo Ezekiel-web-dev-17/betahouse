@@ -14,7 +14,6 @@ import otherII from "../../utils/f3f9436c-0a9d-473d-8973-1c502af61202.jpeg";
 import otherIII from "../../utils/efb164e4-b0f7-4eca-a366-4e11d834c457.jpeg";
 import line from "../../utils/Line 7.svg";
 import Showcase from "../../components/showcase/Showcase.jsx";
-import Footer from "../../components/footer/Footer.jsx";
 import Header from "../../components/header/Header.jsx";
 
 const Homepage = () => {
@@ -145,7 +144,6 @@ const Homepage = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 };

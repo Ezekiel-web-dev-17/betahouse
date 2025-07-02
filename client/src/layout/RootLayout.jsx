@@ -1,12 +1,17 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/navbar/NavBar";
+import StateContext from "../context/StateContext";
+import Footer from "../components/footer/Footer";
 
 const RootLayout = () => {
   return (
     <div>
-      <NavBar />
-      <Outlet />
+      <StateContext>
+        <NavBar />
+        <Outlet />
+        <Footer />
+      </StateContext>
     </div>
   );
 };

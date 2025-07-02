@@ -1,3 +1,5 @@
 .env.*.local
 .vite
+server2/
 .vscode
+.json
