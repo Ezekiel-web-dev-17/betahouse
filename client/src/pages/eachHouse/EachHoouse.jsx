@@ -113,7 +113,7 @@ const EachHoouse = () => {
 
           <Link
             className="w-100"
-            to={user == undefined ? `/house/${params.id}` : "/"}
+            to={user !== undefined ? `/house/${params.id}` : "/checkout"}
           >
             <button
               className=" rounded border-0 fs-6 py-2 fw-bold text-white w-100"

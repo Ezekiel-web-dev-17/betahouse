@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+.contact-one p {
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Balsamiq Sans", sans-serif;
+}
+
+.contact-one p a {
+  color: #171717;
+}
+
+.contact-one p span a {
+  color: #0f749d;
+}
+
+.contact-two h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #191919;
+  font-family: "Outfit", sans-serif;
+}
+
+.all-media {
+  gap: 20px;
+}
+
+.each-contact {
+  border: 1px solid #d4d4d4;
+  width: 300px;
+  height: 163px;
+  gap: 12px;
+}
+
+.reach {
+  font-size: 18px;
+  font-weight: 700;
+  color: #191919;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.get {
+  font-weight: 500;
+  font-family: "Comfortaa", sans-serif;
+  color: #2d2d2d;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.loc-con {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  max-width: 700px;
+  gap: 60px;
+}
+
+.con-inp input,
+.con-inp textarea {
+  width: 420px;
+  border: 2px solid #d4d4d4;
+  font-family: "Comfortaa", sans-serif;
+  resize: none;
+}
+
+.con-inp input::placeholder,
+.con-inp textarea::placeholder {
+  color: #7f7f7f;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.con-form button {
+  color: #fff;
+  font-weight: 700;
+  width: 100px;
+}
+
+.con-form h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  color: #191919;
+}

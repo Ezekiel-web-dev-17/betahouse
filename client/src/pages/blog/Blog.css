@@ -1,0 +1,174 @@
+.blogpage-tit p {
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.blogpage-con h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #191919;
+}
+
+.blogpage-tit p a {
+  color: #171717;
+}
+
+.blogpage-tit p span a {
+  color: #0f749d;
+}
+
+.blogpage-low {
+  padding-top: 20px;
+  padding-bottom: 80px;
+  gap: 60px;
+}
+
+.left-blog {
+  width: 295px;
+  gap: 40px;
+}
+
+.left-blog h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: #191919;
+}
+
+.blogshinput {
+  width: 295px;
+  padding: 10px 20px;
+  border-radius: 26px;
+  border: 2px solid #d4d4d4;
+}
+
+.blogshinput::placeholder {
+  font-weight: 600;
+  color: #7f7f7f;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.blogs-carte,
+.blogsrec-post,
+.blogsrec-popu {
+  width: 295px;
+  border: 1px solid #d4d4d4;
+  padding: 30px 10px;
+  gap: 40px;
+}
+
+.blogs-carte h3,
+.blogsrec-post h3,
+.blogsrec-popu h3 {
+  font-family: "Poppins", sans-serif;
+  color: #191919;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.blogrec-eachp {
+  gap: 24px;
+}
+
+.blogrec-eachp p {
+  font-family: "Comfortaa", sans-serif;
+  color: #191919;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.blogeach-carte p {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #2d2d2d;
+}
+
+.blogspopu-tags {
+  gap: 20px;
+}
+
+.blogspopu-tags div div {
+  border: 1px solid #d4d4d4;
+}
+
+.blogspopu-tags p {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #2d2d2d;
+}
+
+.dream-shop {
+  top: 120px;
+  gap: 40px;
+  left: 15%;
+  right: 15%;
+}
+
+.dream-shop div {
+  gap: 20px;
+}
+
+.dream-shop h3 {
+  font-weight: 700;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+  color: #0b8498;
+  line-height: 36.4px;
+}
+
+.dream-shop p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22.4px;
+  color: #0b8498;
+}
+
+.dream-shop button {
+  background-color: #ffe926;
+  border-radius: 74px;
+  width: 151px;
+  height: 51px;
+  color: #191919;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.right-blog {
+  gap: 50px;
+  width: 885px;
+}
+
+.right-each {
+  gap: 24px;
+  border: 1px solid #d4d4d4;
+  padding: 15px 15px 30px 15px;
+}
+
+.inblog {
+  gap: 20px;
+}
+
+.inblog p {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22.4px;
+  color: #2d2d2d;
+}
+
+.inblog h4 {
+  font-family: "Comfortaa", sans-serif;
+  color: #191919;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.blog-time {
+  border: 1px solid #d4d4d4;
+}

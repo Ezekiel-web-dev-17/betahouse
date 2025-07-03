@@ -3,36 +3,63 @@ import { AppContext } from "../../context/StateContext";
 import "./CartPage.css";
 import { Link } from "react-router-dom";
 import { BsTrash3Fill } from "react-icons/bs";
+import { GrShop } from "react-icons/gr";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const CartPage = () => {
-  const { cartItems } = useContext(AppContext);
+  const [subTotal, setSubTotal] = useState(0);
+  const { cartItems, onRemove } = useContext(AppContext);
+  useEffect(() => {
+    cartItems.map((each) => {
+      setSubTotal((prevTotal) => (prevTotal += Number(each.priceNo) / 2));
+    });
+  }, cartItems);
+
+  function numToString(num) {
+    const strArr = String(num);
+    let finalStr = "";
+
+    for (let i = 0; i < strArr.length; i++) {
+      if ((strArr.length - i) % 3 === 0) {
+        finalStr += `,${strArr[i]}`;
+      } else {
+        finalStr += strArr[i];
+      }
+    }
+
+    return finalStr.startsWith(",") ? finalStr.slice(1) : finalStr;
+  }
+
+  const handleDelete = (cartItem) => {
+    onRemove(cartItem);
+    setSubTotal(subTotal - Number(cartItem.priceNo));
+  };
   return (
     <div className="px-5 my-5 pt-5">
-      {cartItems.length > 0 ? (
+      {cartItems.length >= 1 ? (
         <div>
           <div className="cart gap-4 pt-5 mb-3">
             {cartItems.map((cartItem, i) => (
               <div
                 key={i}
-                className=" position-relative border border-5 border-success  rounded-3 overflow-hidden d-flex gap-3 align-items-center w-100 ps-3"
+                className=" position-relative border border-5 border-success  rounded-4 overflow-hidden d-flex gap-3 align-items-center w-100 ps-3"
               >
                 <img src={cartItem.image} width="270px" height="270px" alt="" />
-                <BsTrash3Fill
-                  className="trash position-absolute bg-dark-subtle p-1 fs-4 rounded-circle overflow-visible"
-                  onClick={() =>
-                    prompt(
-                      "Are you sure you want to delete this property from the cart?"
-                    )
-                      .trim()
-                      .toLowerCase() === "yes"
-                      ? alert("left")
-                      : alert("Available!!!")
-                  }
-                />
+                <button
+                  className="trash position-absolute bg-dark-subtle border-0 rounded-circle overflow-visible"
+                  onClick={() => {
+                    onRemove(cartItem);
+                    alert(subTotal, cartItem.priceNo);
+                    setSubTotal(subTotal - Number(cartItem.priceNo));
+                  }}
+                >
+                  <BsTrash3Fill className="" />
+                </button>
                 <div className="text-align-start">
-                  <span className=" d-flex gap-1 align-items-start flex-column">
-                    <label className=" fs-6">Property Name: </label>
-                    <h5 className=" fw-semibold mb-0 ps-3">{cartItem.title}</h5>
+                  <span className=" d-flex gap-0 align-items-start flex-column">
+                    <label className=" fs-6 mb-0">Property Name: </label>
+                    <h5 className=" fw-semibold mb-2">{cartItem.title}</h5>
                   </span>
                   <span className=" d-flex gap-2">
                     <label className=" fs-6">Price: </label>
@@ -55,6 +82,10 @@ const CartPage = () => {
               </div>
             ))}
           </div>
+          <div className="d-flex align-items-center justify-content-center gap-2 m-auto w-100">
+            <label className=" fs-5 fw-bold">Subtotal: </label>
+            <h5 className=" fw-semibold mb-0">₦{numToString(subTotal)}</h5>
+          </div>
           <Link to="/checkout">
             <button
               className=" w-25 py-1 px-4 bg-success text-white mt-3 fs-5 fw-bold rounded-3 border-0"
@@ -65,7 +96,15 @@ const CartPage = () => {
           </Link>
         </div>
       ) : (
-        <p className="fs-2 fw-semibold">Cart is Currently Empty!! {" : ("}</p>
+        <div className=" fw-semibold mt-5 ">
+          <GrShop className="fs-1" />
+          <p className="fs-1 mb-0">Cart is Currently Empty {" : ("}</p>
+          <Link to="/">
+            <button className=" bg-success px-4 py-1 text-white rounded-3 fw-medium fs-6 border-0">
+              Continue Browsing Properties.
+            </button>
+          </Link>
+        </div>
       )}
     </div>
   );
