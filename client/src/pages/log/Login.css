@@ -50,7 +50,7 @@
   .auth-img {
     position: relative;
     min-width: 100vw;
-    min-height: 128vh;
+    min-height: 840px;
     z-index: -1;
   }
 }

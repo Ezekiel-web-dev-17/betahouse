@@ -77,7 +77,7 @@ const Login = () => {
             </div>
             <div className="checkbox d-flex gap-3 mb-4">
               <Link className=" text-decoration-none text-danger" to="/sign-up">
-                <p className="mb-0">Forgot Password</p>
+                <p className="mb-0 text-danger fw-semibold">Forgot Password</p>
               </Link>
             </div>
           </div>
