@@ -21,3 +21,16 @@
 .checkbox input:checked {
   accent-color: #3d9970;
 }
+
+@media (max-width: 375px) {
+  .first input {
+    width: 100%;
+  }
+
+  .signbg {
+    position: relative;
+    min-width: 100%;
+    /* min-height: 940px; */
+    z-index: -1;
+  }
+}

@@ -38,15 +38,15 @@ const SignUp = () => {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center align-content-center">
-      <div className="d-flex align-items-center flex-column">
+    <div className="login-page d-flex align-items-center justify-content-center align-content-center">
+      <div className="login-content d-flex align-items-center flex-column">
         <form
           onSubmit={() => {
             handleSubmit();
             navigate("/sign-in");
           }}
           action=""
-          className="signup-form mx-5 my-3 text-start bg-white d-flex flex-column gap-2"
+          className="signup-form mx-sm-5 my-3 pe-sm-4 text-start d-flex flex-column gap-2"
         >
           <h3 className=" fw-bold fs-3 pe-3 mb-0">
             Join our community of home seekers and explore the possibilities
@@ -55,11 +55,11 @@ const SignUp = () => {
           <p className="mb-3 fw-medium text-black-75">
             Lets get started by filling out the information below
           </p>
-          <div className="d-flex justify-content-between align-items-center  mb-3">
+          <div className="d-flex flex-sm-row flex-column justify-content-between align-items-sm-start align-items-sm-center  mb-3">
             <div className="first d-flex flex-column align-items-start gap-2">
               <label htmlFor="">First Name</label>
               <input
-                className="px-2 py-2 fs-6 rounded-3 border-3 border-black border-opacity-25"
+                className="px-sm-4 py-sm-3 py-2 px-3 fs-6 rounded-3 border-3 border-black border-opacity-25 mb-sm-0 mb-3"
                 type="text"
                 name="firstname"
                 required
@@ -72,7 +72,7 @@ const SignUp = () => {
             <div className="last d-flex flex-column align-items-start gap-2">
               <label htmlFor="">Last Name</label>
               <input
-                className="px-2 py-2 fs-6 rounded-3 border-3 border-black border-opacity-25"
+                className="px-sm-4 py-sm-3 py-2 px-3 fs-6 rounded-3 border-3 border-black border-opacity-25"
                 type="text"
                 name="lastname"
                 required
@@ -136,15 +136,24 @@ const SignUp = () => {
 
         <div className="or d-flex align-items-center justify-content-center gap-3 mb-3">
           <img src={line13} alt="" />
-          <p className="mb-0">or</p>
+          <p className="mb-0 text-black">or</p>
           <img src={line16} alt="" />
         </div>
         <button
           type="submit"
-          className="d-flex justify-content-center align-items-center gap-3 rounded-4 py-3 bg-transparent border-2 border-black border-opacity-75 w-75 fs-5 mb-4"
+          className="google d-flex justify-content-center align-items-center gap-3 rounded-4 py-sm-3 py-2  border-2 border-black border-opacity-75 w-75 fs-5 mb-4"
         >
           <img src={googleImg} alt="" />
-          <p className="mb-0">Continue with Google</p>
+          <p
+            className="mb-0"
+            style={{
+              textWrap: "nowrap",
+              fontFamily: "Outfit",
+              fontSize: "22px",
+            }}
+          >
+            Continue with Google
+          </p>
         </button>
 
         <p style={{ color: "#716F6F", placeSelf: "center", fontSize: "18px" }}>
