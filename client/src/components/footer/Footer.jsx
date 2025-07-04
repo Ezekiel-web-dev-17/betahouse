@@ -3,15 +3,16 @@ import logo from "../../utils/bhlogo.png";
 import { Link } from "react-router-dom";
 import { GrMail } from "react-icons/gr";
 import { BsTelephoneFill, BsFillGeoAltFill } from "react-icons/bs";
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <footer className="" style={{ backgroundColor: "#035A33" }}>
-      <div className="px-5 mx-5 py-5 d-flex gap-5 ">
-        <div className="w-50 ms-3 d-flex flex-column g-4 text-white text-start mt-4">
+      <div className="px-sm-5 px-3 mx-sm-5 mx-3 py-sm-5 py-3 d-flex flex-sm-row  flex-column gap-5 ">
+        <div className="discover-con w-50 ms-3 d-flex flex-column g-4 text-white text-start mt-4">
           <img className="pb-4" src={logo} width="180px" alt="" />
 
-          <p className="mb-4 me-5 pe-5">
+          <p className="discover mb-sm-4 me-sm-5  pe-sm-5">
             Discover, rent, and find your ideal home hassle-free with BetaHouse.
             Take control of your rental journey today!
           </p>
@@ -31,9 +32,9 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className=" mt-4 w-50 me-3 text-start d-flex justify-content-between ">
-          <div className="">
-            <h5 className=" fw-semi-bold text-white mb-4">Quick Links</h5>
+        <div className="all-links mt-4 w-50 me-3 text-start d-sm-flex d-grid justify-content-between ">
+          <div className="mb-sm-0 mb-5">
+            <h5 className=" fw-semi-bold text-white mb-4 ">Quick Links</h5>
             <ul className="ps-0 mb-0 d-flex flex-column gap-4">
               <Link className=" text-decoration-none text-white" to="/">
                 <li style={{ fontSize: "14px" }} className="list-unstyled">
@@ -65,7 +66,7 @@ const Footer = () => {
               </Link>
             </ul>
           </div>
-          <div className="more">
+          <div className="more mb-sm-0 mb-5">
             <h5 className="mb-4 fw-semi-bold text-white">More</h5>
             <ul className="ps-0 mb-0 d-flex flex-column gap-4">
               <li
@@ -120,11 +121,11 @@ const Footer = () => {
         </div>
       </div>
       <hr style={{ color: "#6F6F6F" }} />
-      <div className="px-5 pt-2 py-4 text-white d-flex justify-content-between mx-5">
-        <p className="ms-5">
+      <div className="px-sm-5 px-0 pt-2 py-4 text-white d-flex justify-content-between mx-sm-5 mx-0">
+        <p className="ms-sm-5">
           Copyright 2023 Betahouse | Designed by Michael.fig
         </p>
-        <p className="me-5">Privacy Policy</p>
+        <p className="me-sm-5 me-3">Privacy Policy</p>
       </div>
     </footer>
   );

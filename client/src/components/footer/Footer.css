@@ -1,0 +1,9 @@
+@media (max-width: 375px) {
+  .discover-con {
+    min-width: 100%;
+  }
+
+  .all-links {
+    margin-inline-start: 20px;
+  }
+}
