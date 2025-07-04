@@ -31,15 +31,15 @@ const Login = () => {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center align-content-center">
-      <div className="d-flex  flex-column align-items-center">
+    <div className="login-page d-flex align-items-center justify-content-center align-content-center">
+      <div className="login-content d-flex  flex-column align-items-center">
         <form
           action=""
           onSubmit={() => {
             handleSubmit();
             navigate("/");
           }}
-          className="signup-form mx-5 my-3 pe-4 text-start bg-white d-flex flex-column gap-2"
+          className="signup-form mx-sm-5 my-3 pe-sm-4 text-start d-flex flex-column gap-2"
         >
           <h3 className=" fw-bold fs-3 pe-3 mb-0">
             Welcome Back to BetaHouse!
@@ -49,7 +49,7 @@ const Login = () => {
           </p>
           <label htmlFor="">Email</label>
           <input
-            className="px-4 py-3 fs-6 rounded-3 border-3 border-black border-opacity-25 mb-3"
+            className="px-sm-4 py-sm-3 py-2 px-3 fs-6 rounded-3 border-3 border-black border-opacity-25 mb-3"
             type="email"
             name="email"
             placeholder="Enter your Email"
@@ -60,7 +60,7 @@ const Login = () => {
           />
           <label htmlFor="">Password</label>
           <input
-            className="px-4 py-3 fs-6 rounded-3 border-3 border-black border-opacity-25  mb-3"
+            className="px-sm-4 py-sm-3 py-2 px-3 fs-6 rounded-3 border-3 border-black border-opacity-25  mb-3"
             type="password"
             name="password"
             autoComplete="new-password"
@@ -84,7 +84,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className=" rounded-4 py-3 border-0 text-white fs-5"
+            className=" rounded-4 py-sm-3 py-2 border-0 text-white fs-5"
             style={{ backgroundColor: "#3d9970" }}
           >
             Sign up
@@ -99,7 +99,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="d-flex justify-content-center align-items-center gap-3 rounded-4 py-3 bg-transparent border-2 border-black border-opacity-75 w-75 fs-5 mb-4"
+          className="d-flex justify-content-center align-items-center gap-3 rounded-4 py-sm-3 py-2 border-2 border-black border-opacity-75 w-75 fs-5 mb-4"
         >
           <img src={googleImg} alt="" />
           <p
@@ -114,7 +114,7 @@ const Login = () => {
           </p>
         </button>
 
-        <p style={{ color: "#716F6F", placeSelf: "center", fontSize: "18px" }}>
+        <p className="new" style={{ placeSelf: "center", fontSize: "18px" }}>
           New User?{" "}
           {
             <Link
@@ -138,7 +138,7 @@ const Login = () => {
         </Link>
         <img
           src={signupbg}
-          className="w-100"
+          className="w-100 auth-img"
           alt=""
           style={{ marginBlockStart: "-30px", borderRadius: "15px" }}
         />

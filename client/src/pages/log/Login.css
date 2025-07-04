@@ -1,0 +1,56 @@
+.login-page button {
+  background-color: #fff;
+}
+
+.new {
+  color: "#716F6F";
+}
+
+@media (max-width: 375px) {
+  .login-page {
+    position: relative;
+    top: -30px;
+    overflow-x: hidden;
+  }
+
+  .login-content {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    z-index: 2;
+    max-width: 90%;
+  }
+
+  .signup-form {
+    max-width: 90%;
+    background: transparent;
+    color: white;
+  }
+
+  .signup-form h3,
+  .signup-form p,
+  .signup-form label,
+  .or p {
+    color: #fff;
+  }
+
+  .or {
+    max-width: 90%;
+  }
+
+  .new {
+    color: #fff;
+  }
+
+  .new > a {
+    font-weight: 600;
+    color: #3d9970;
+  }
+
+  .auth-img {
+    position: relative;
+    min-width: 100vw;
+    min-height: 128vh;
+    z-index: -1;
+  }
+}
