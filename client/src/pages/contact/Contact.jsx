@@ -85,7 +85,7 @@ const Contact = () => {
         <h2 className="m-0 text-success fw-bolder">Contact</h2>
 
         {/* Contact information cards */}
-        <div className="all-media d-flex align-items-center justify-content-between w-100">
+        <div className="all-media d-flex flex-sm-row flex-column align-items-center justify-content-between w-100">
           {/* Phone number card */}
           <div className="each-contact d-flex flex-column align-items-center justify-content-center rounded-3 w-100">
             <div className="d-flex flex-column align-items-center gap-3">
@@ -120,12 +120,12 @@ const Contact = () => {
 
       {/* ===================================== */}
       {/* Section containing the interactive map and contact form */}
-      <div className="loc-con d-flex align-items-center w-100 justify-content-between">
+      <div className="loc-con d-flex flex-sm-row flex-column-reverse align-items-center w-100 justify-content-between">
         {/* Map container for displaying an interactive map using React Leaflet */}
         <div
           className="map-container mb-4 w-100"
           // Inline style setting the map height, flex basis, and minimum width.
-          style={{ height: "470px", flex: "1 1 45%", minWidth: "604.81px" }}
+          style={{ height: "470px" }}
         >
           <MapContainer
             center={position} // Set the center of the map to the defined position.

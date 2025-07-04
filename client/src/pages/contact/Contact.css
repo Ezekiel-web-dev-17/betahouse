@@ -80,3 +80,20 @@
   font-size: 28px;
   color: #191919;
 }
+
+.map-container {
+  min-width: 604.81px;
+}
+
+@media (max-width: 375px) {
+  .map-container {
+    min-width: 280px;
+    max-width: 320px;
+    max-height: 400px;
+  }
+
+  .con-form input,
+  .con-form textarea {
+    max-width: 97%;
+  }
+}
