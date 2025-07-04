@@ -25,14 +25,14 @@ const CartPage = () => {
   useEffect(() => priceCalculator(), []);
 
   return (
-    <div className="px-5 my-5 pt-5">
+    <div className="cart-page px-5 my-5 pt-5">
       {cartItems.length >= 1 ? (
         <div>
           <div className="cart gap-4 pt-5 mb-3">
             {cartItems.map((cartItem, i) => (
               <div
                 key={i}
-                className=" position-relative border border-5 border-success  rounded-4 overflow-hidden d-flex gap-3 align-items-center w-100 ps-3"
+                className="cart-card position-relative border border-5 border-success  rounded-4 overflow-hidden d-flex gap-3 align-items-center w-100 ps-3"
               >
                 <img src={cartItem.image} width="270px" height="270px" alt="" />
                 <button
@@ -88,9 +88,11 @@ const CartPage = () => {
           </Link>
         </div>
       ) : (
-        <div className=" fw-semibold mt-5 ">
-          <GrShop className="fs-1" />
-          <p className="fs-1 mb-0">Cart is Currently Empty {" : ("}</p>
+        <div className="empty fw-semibold mt-5 ">
+          <div>
+            <GrShop className="fs-1" />
+            <p className="fs-1 mb-0">Cart is Currently Empty {" : ("}</p>
+          </div>
           <Link to="/">
             <button className="continue-btn px-4 py-1 text-white rounded-3 fw-medium fs-6 border-0">
               Continue Browsing Properties.

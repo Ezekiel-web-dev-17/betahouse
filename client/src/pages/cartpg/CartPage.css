@@ -22,3 +22,27 @@
 .continue-btn:hover {
   background: #0f965991;
 }
+
+@media (width <= 375px) {
+  .cart-page {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .cart {
+    display: flex;
+  }
+
+  .cart-card {
+    min-width: 100%;
+    flex-direction: column;
+  }
+
+  .empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+  }
+}

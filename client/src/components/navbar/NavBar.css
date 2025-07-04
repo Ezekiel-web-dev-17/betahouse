@@ -9,6 +9,15 @@ nav {
   z-index: 3;
 }
 
+.closer1 {
+  transform: translateX(-25vw);
+  min-width: 10%;
+}
+
+.links-ul {
+  gap: 1.5rem;
+}
+
 nav ul li {
   font-family: Poppins;
   font-weight: 500;
@@ -49,4 +58,87 @@ nav ul li a:focus {
   padding-bottom: 7px;
   padding-left: 10px;
   background-color: #3d9970;
+}
+
+@media (width <= 375px) {
+  nav {
+    height: 60px;
+    padding-inline: 20px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .nav-main {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .nav-main::after {
+    content: " ";
+    position: absolute;
+    top: 12dvh;
+    right: 15%;
+    width: 400px;
+    height: 110dvh;
+    background: #00000050;
+    backdrop-filter: blur(5px);
+    z-index: -2;
+  }
+
+  .links-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    position: relative;
+    top: 100px;
+    right: 60px;
+    width: 250px;
+    padding-top: 120px;
+  }
+
+  .links-ul li {
+    width: 100%;
+    border-bottom: 2px solid #a39c9c88;
+  }
+
+  .links-ul a {
+    font-size: 16px;
+  }
+
+  .links-ul::after {
+    content: " ";
+    position: absolute;
+    background: #0a5835;
+    width: 300px;
+    height: 110dvh;
+    top: 0px;
+    left: 0;
+    z-index: -1;
+  }
+
+  .cart-user {
+    position: absolute;
+    bottom: -65vh;
+  }
+
+  .sign-up {
+    width: 80px;
+    height: 35px;
+    gap: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+  }
+
+  .login-btn {
+    width: 70px;
+    height: 35px;
+    border-radius: 8px;
+    padding-top: 3.5px;
+    padding-right: 5px;
+    padding-bottom: 3.5px;
+    padding-left: 5px;
+    background-color: #3d9970;
+  }
 }
