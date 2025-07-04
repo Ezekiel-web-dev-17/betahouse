@@ -15,6 +15,10 @@
   transform: scale(1.2);
 }
 
+.make {
+  width: 25%;
+}
+
 .continue-btn {
   background: #3d9970;
 }
@@ -31,6 +35,11 @@
 
   .cart {
     display: flex;
+    flex-direction: column;
+  }
+
+  .make {
+    width: 85%;
   }
 
   .cart-card {

@@ -25,14 +25,14 @@ const CartPage = () => {
   useEffect(() => priceCalculator(), []);
 
   return (
-    <div className="cart-page px-5 my-5 pt-5">
+    <div className="cart-page px-sm-5 px-4 my-5 pt-sm-5">
       {cartItems.length >= 1 ? (
         <div>
           <div className="cart gap-4 pt-5 mb-3">
             {cartItems.map((cartItem, i) => (
               <div
                 key={i}
-                className="cart-card position-relative border border-5 border-success  rounded-4 overflow-hidden d-flex gap-3 align-items-center w-100 ps-3"
+                className="cart-card position-relative border border-5 border-success  rounded-4 overflow-hidden d-flex gap-3 align-items-center w-100 ps-sm-3"
               >
                 <img src={cartItem.image} width="270px" height="270px" alt="" />
                 <button
@@ -43,7 +43,7 @@ const CartPage = () => {
                       confirm("Click OK button to delete property from cart.")
                     );
                     priceOnDelete(cartItem);
-                    toast.success("Successfully deleted property.");
+                    toast.success("Successfully removed property from cart.");
                   }}
                 >
                   <BsTrash3Fill className="" />
@@ -80,7 +80,7 @@ const CartPage = () => {
           </div>
           <Link to="/checkout">
             <button
-              className=" w-25 py-1 px-4 bg-success text-white mt-3 fs-5 fw-bold rounded-3 border-0"
+              className="make py-1 px-4 bg-success text-white mt-3 fs-5 fw-bold rounded-3 border-0"
               style={{ textWrap: "nowrap" }}
             >
               Make Purchase Of All.
