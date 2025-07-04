@@ -10,7 +10,7 @@ import { AppContext } from "../../context/StateContext";
 
 const EachHoouse = () => {
   const params = useParams();
-  const { id, image, whatFor, title, location, bed, bath, price } = shows.find(
+  const { image, whatFor, title, location, bed, bath, price } = shows.find(
     (item) => item.id == params.id.slice(1)
   );
   const [mainImg, setMainImg] = useState(image);
@@ -20,23 +20,21 @@ const EachHoouse = () => {
   const [disable, setDisable] = useState(false);
 
   return (
-    <div className=" d-flex gap-5 px-5 mx-5 mt-5 pt-5 align-items-center pb-5">
-      <div className="w-50 d-flex flex-column gap-3 justify-content-center align-items-center mt-5">
+    <div className=" d-flex flex-sm-row flex-column gap-5 px-sm-5 mx-sm-5 mt-sm-5 pt-5 align-items-center pb-5">
+      <div className="images d-flex flex-column gap-3 justify-content-center align-items-center mt-5">
         <div
           className="w-100 rounded border border-5 border-light main"
           style={{
-            height: "400px",
             overflow: "hidden",
           }}
         >
           <img
             src={mainImg}
-            height="500px"
             className="w-100 rounded border border-5 border-light"
             alt=""
           />
         </div>
-        <div className="w-100 d-flex align-items-center gap-3">
+        <div className="other-imgs w-100 d-flex align-items-center gap-3">
           {imgArr.map((index, i) => (
             <img
               key={i}
@@ -51,7 +49,6 @@ const EachHoouse = () => {
                 cursor: "Pointer",
               }}
               src={index}
-              height="500px"
               onClick={() => {
                 setMainImg(imgArr[i]);
               }}
@@ -60,7 +57,7 @@ const EachHoouse = () => {
           ))}
         </div>
       </div>
-      <article className=" w-50 mt-5 text-start d-flex flex-column gap-2">
+      <article className=" mt-sm-5 mt-0 text-start d-flex flex-column gap-2">
         <h2 className="mb-0 fw-bold">{title}</h2>
 
         <p>

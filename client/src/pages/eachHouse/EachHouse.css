@@ -1,0 +1,36 @@
+.images,
+article {
+  width: 50%;
+}
+
+.images div {
+  height: 400px;
+}
+
+.images > div img {
+  height: 500px;
+}
+
+.other-imgs {
+  max-height: 100px;
+}
+
+@media (max-width: 375px) {
+  .images,
+  article {
+    width: 90%;
+  }
+
+  .images div {
+    height: 250px;
+  }
+
+  .images > div img {
+    height: 250px;
+  }
+
+  .other-imgs img {
+    max-width: 22%;
+    max-height: 65px;
+  }
+}
