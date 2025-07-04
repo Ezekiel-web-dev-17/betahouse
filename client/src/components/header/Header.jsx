@@ -1,4 +1,3 @@
-import React from "react";
 import minus from "../../utils/span.bedroom-count-btn.svg";
 import plus from "../../utils/span.bedroom-count-btn (1).svg";
 import line from "../../utils/Line 7.svg";
@@ -10,7 +9,7 @@ const Header = () => {
       <p className="find-txt mb-0">
         Find your perfect home among our curated properties. Start browsing now!
       </p>
-      <section className="hero rounded-3 ps-5 m-3">
+      <section className="hero rounded-3 ps-sm-5 px-3 px-sm-0 m-3">
         <div>
           <h6>LOCATION</h6>
           <p className="mb-0">eg. Gbagada</p>

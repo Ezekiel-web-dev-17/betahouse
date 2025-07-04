@@ -36,7 +36,7 @@ const NavBar = () => {
         <img className="logo" src={logo} alt="" />
       </Link>
 
-      <div className=" nav-main d-sm-flex gap-sm-5">
+      <div className=" nav-main d-sm-flex d-none gap-sm-5">
         <ul className="links-ul flex-sm-row align-items-center d-flex mb-0">
           <li className=" text-decoration-none list-unstyled text-white">
             <Link to="/">Home</Link>
@@ -85,9 +85,9 @@ const NavBar = () => {
       </div>
       <AiOutlineCloseCircle
         id="close"
-        className="closer1 close d-sm-none position-relative end-0 me-2 mb-0 text-white fs-1"
+        className="closer1 close d-sm-none position-relative end-0 d-none me-2 mb-0 text-white fs-1"
       />
-      <AiOutlineMenu className="menu d-sm-none position-relative end-0 me-2 d-none mb-0 text-white fs-1" />
+      <AiOutlineMenu className="menu d-sm-none position-relative end-0 me-2 mb-0 text-white fs-1" />
     </nav>
   );
 };

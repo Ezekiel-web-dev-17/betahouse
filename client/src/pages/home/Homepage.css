@@ -1,3 +1,7 @@
+:root {
+  --hero-width: 200px;
+}
+
 .home {
   overflow-x: hidden;
 }
@@ -96,4 +100,58 @@ header > p {
   text-align: center;
   vertical-align: middle;
   text-transform: capitalize;
+}
+
+@media (max-width: 375px) {
+  header {
+    height: 135vh;
+  }
+  header h1 {
+    font-size: 40px;
+  }
+
+  header > p {
+    padding-inline: 2em;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    width: var(--hero-width);
+    height: calc(var(--hero-width) +150px);
+    padding-block: 20px;
+    top: 10px;
+    left: -10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero::before {
+    content: " ";
+    position: absolute;
+    height: calc(var(--hero-width) + 210px);
+    width: calc(var(--hero-width) + 45px);
+    background: #c8cfdd48;
+    top: -20px;
+    left: -22px;
+    z-index: -1;
+    border-radius: 3%;
+  }
+
+  .hero img {
+    transform: rotate(90deg);
+  }
+
+  .find-prop {
+    margin-block: 10px;
+    text-wrap: nowrap;
+    width: 85%;
+    height: 10%;
+    top: 22px;
+    left: 27px;
+    border-radius: 8px;
+    line-height: 35px;
+  }
 }
