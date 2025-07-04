@@ -14,3 +14,11 @@
   color: rgb(230, 90, 90);
   transform: scale(1.2);
 }
+
+.continue-btn {
+  background: #3d9970;
+}
+
+.continue-btn:hover {
+  background: #0f965991;
+}

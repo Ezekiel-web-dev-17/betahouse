@@ -7,34 +7,23 @@ import { GrShop } from "react-icons/gr";
 import { useState } from "react";
 import { useEffect } from "react";
 
+import { toast } from "react-toastify";
+
 const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0);
-  const { cartItems, onRemove } = useContext(AppContext);
-  useEffect(() => {
+  const { cartItems, onRemove, numToString } = useContext(AppContext);
+  const priceCalculator = () => {
     cartItems.map((each) => {
       setSubTotal((prevTotal) => (prevTotal += Number(each.priceNo) / 2));
     });
-  }, cartItems);
-
-  function numToString(num) {
-    const strArr = String(num);
-    let finalStr = "";
-
-    for (let i = 0; i < strArr.length; i++) {
-      if ((strArr.length - i) % 3 === 0) {
-        finalStr += `,${strArr[i]}`;
-      } else {
-        finalStr += strArr[i];
-      }
-    }
-
-    return finalStr.startsWith(",") ? finalStr.slice(1) : finalStr;
-  }
-
-  const handleDelete = (cartItem) => {
-    onRemove(cartItem);
-    setSubTotal(subTotal - Number(cartItem.priceNo));
   };
+
+  const priceOnDelete = (cartItem) => {
+    setSubTotal((prevTotal) => (prevTotal -= Number(cartItem.priceNo)));
+  };
+
+  useEffect(() => priceCalculator(), []);
+
   return (
     <div className="px-5 my-5 pt-5">
       {cartItems.length >= 1 ? (
@@ -50,8 +39,11 @@ const CartPage = () => {
                   className="trash position-absolute bg-dark-subtle border-0 rounded-circle overflow-visible"
                   onClick={() => {
                     onRemove(cartItem);
-                    alert(subTotal, cartItem.priceNo);
-                    setSubTotal(subTotal - Number(cartItem.priceNo));
+                    alert(
+                      confirm("Click OK button to delete property from cart.")
+                    );
+                    priceOnDelete(cartItem);
+                    toast.success("Successfully deleted property.");
                   }}
                 >
                   <BsTrash3Fill className="" />
@@ -100,7 +92,7 @@ const CartPage = () => {
           <GrShop className="fs-1" />
           <p className="fs-1 mb-0">Cart is Currently Empty {" : ("}</p>
           <Link to="/">
-            <button className=" bg-success px-4 py-1 text-white rounded-3 fw-medium fs-6 border-0">
+            <button className="continue-btn px-4 py-1 text-white rounded-3 fw-medium fs-6 border-0">
               Continue Browsing Properties.
             </button>
           </Link>

@@ -12,6 +12,8 @@ import SignUp from "./pages/signup/SignUp.jsx";
 import { ApiProvider } from "./context/AxiosContext.jsx";
 import EachHoouse from "./pages/eachHouse/EachHoouse.jsx";
 import CartPage from "./pages/cartpg/CartPage.jsx";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 // https://betahousebackend2.onrender.com/api/v1/auth/sign-{up || in}
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ApiProvider>
+      <ToastContainer />
     </>
   );
 }

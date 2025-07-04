@@ -6,16 +6,6 @@ import { Link } from "react-router-dom";
 import "./Blog.css";
 // Import the plus icon from react-icons for displaying next to categories.
 import { FaPlus } from "react-icons/fa";
-// Import various images used in the blog layout for posts, posters, and dates.
-// import""from "../../../public/Rectangle 60.png";
-// import blogptwo from "../../../public/Rectangle 61.png";
-// import blogpthree from "../../../public/Rectangle 62.png";
-// import""from "../../../public/Rectangle 64.png";
-// import blogimg1 from "../../../public/blog1.png";
-// import blogimg2 from "../../../public/blog2.png";
-// import blogimg3 from "../../../public/blog3.png";
-// import blogimg4 from "../../../public/blog4.png";
-// import blogdate from "../../../public/blogdate.png";
 import { BsSearch } from "react-icons/bs";
 
 // Define the Blog functional component.
