@@ -49,7 +49,7 @@ const Homepage = () => {
           <Showcase />
         </section>
         <section className="discover-sect mb-5 pb-5">
-          <h2 className="mt-3 pt-3  pb-3 mb-5">
+          <h2 className="mt-3 pt-3  pb-3 mb-5" style={{ color: "#3d9970" }}>
             Discover Our Popular Properties
           </h2>
 
@@ -82,7 +82,12 @@ const Homepage = () => {
                 }}
               >
                 {cards.map((card, i) => (
-                  <div key={i} className="position-relative">
+                  <div
+                    key={i}
+                    className={`position-relative ${
+                      i >= 4 ? "small-screen" : ""
+                    }`}
+                  >
                     <img
                       src={card.src}
                       width="290px"

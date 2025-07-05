@@ -154,4 +154,12 @@ header > p {
     border-radius: 8px;
     line-height: 35px;
   }
+
+  .small-screen {
+    display: none;
+  }
+
+  .caro-discover {
+    padding-inline: 10px;
+  }
 }
