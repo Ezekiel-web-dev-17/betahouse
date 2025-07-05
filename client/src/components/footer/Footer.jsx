@@ -12,10 +12,16 @@ const Footer = () => {
         <div className="discover-con w-50 ms-3 d-flex flex-column g-4 text-white text-start mt-4">
           <img className="pb-4" src={logo} width="180px" alt="" />
 
-          <p className="discover mb-sm-4 me-sm-5  pe-sm-5">
+          <p className="discover mb-sm-4 me-sm-5 pe-sm-5">
             Discover, rent, and find your ideal home hassle-free with BetaHouse.
-            Take control of your rental journey today!
+            Take control of your rental journey today! Your Key to Better
+            Living. Beta Deals. Beta Agents. Beta House. No Wahala. Just Homes.
           </p>
+
+          <span className="mb-5">
+            {/* <strong className="fs-4">BetaHouse</strong> */}
+            <img src={logo} alt="" width="26%" /> — Na Your New House Be This.
+          </span>
 
           <div className="contact">
             <span className="d-flex align-items-center gap-2 location mb-3">

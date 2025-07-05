@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
-import googleImg from "../../utils/🦆 icon _google_.png";
 import signupbg from "../../utils/signupbg.png";
 import line13 from "../../utils/Line 13.svg";
 import line16 from "../../utils/Line 16.svg";
 import logo from "../../utils/bhlogo.png";
-import { ApiContext } from "../../context/AxiosContext.jsx";
+// import { ApiContext } from "../../context/AxiosContext.jsx";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 const SignUp = () => {
-  const api = useContext(ApiContext);
+  // const api = useContext(ApiContext);
   const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({
     firstname: "",
@@ -20,32 +20,43 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
-
-  localStorage.setItem("firstName", null);
-  localStorage.setItem("lastName", null);
-
-  const handleSubmit = async () => {
-    try {
-      e.preventDefault();
-      await api.post("/sign-up", signUpData);
-      localStorage.setItem("firstName", signUpData.firstname);
-      localStorage.setItem("lastName", signUpData.lastname);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      console.table(signUpData);
+      console.log(signUpData);
+      const response = await axios.post(
+        "https://betahousebackend2.onrender.com/api/v1/auth/sign-up",
+        signUpData
+      );
+      console.log("Sign-up successful:", response.data.user);
+      navigate("/sign-in");
+    } catch (error) {
+      setError(
+        error.response?.data?.message ||
+          "Something went wrong. Please try again later."
+      );
+      console.error("Error during sign-up:", error);
+    }
   };
 
   return (
     <div className="login-page d-flex align-items-center justify-content-center align-content-center">
       <div className="login-content d-flex align-items-center flex-column">
         <form
-          onSubmit={() => {
+          onSubmit={(e) => {
+            e.preventDefault();
+            setError("");
+            if (signUpData.password !== signUpData.confirmPassword) {
+              setError("Passwords do not match.");
+              return;
+            }
             handleSubmit();
-            navigate("/sign-in");
           }}
           action=""
           className="signup-form mx-sm-5 my-3 pe-sm-4 text-start d-flex flex-column gap-2"
@@ -54,6 +65,7 @@ const SignUp = () => {
             Join our community of home seekers and explore the possibilities
             that await.
           </h3>
+          <p className=" text-danger fs-5">{error}</p>
           <p className="mb-3 fw-medium text-black-75">
             Lets get started by filling out the information below
           </p>
@@ -67,7 +79,7 @@ const SignUp = () => {
                 required
                 placeholder="Enter Name"
                 value={signUpData.firstname}
-                autoComplete={signUpData.firstname}
+                autoComplete="firstname"
                 onChange={handleChange}
               />
             </div>
@@ -80,7 +92,7 @@ const SignUp = () => {
                 required
                 placeholder="Enter Name"
                 value={signUpData.lastname}
-                autoComplete={signUpData.lastname}
+                autoComplete="lastname"
                 onChange={handleChange}
               />
             </div>
@@ -93,14 +105,14 @@ const SignUp = () => {
             placeholder="Enter your Email"
             value={signUpData.email}
             onChange={handleChange}
-            autoComplete={signUpData.email}
+            autoComplete="email"
           />
           <label htmlFor="">Password</label>
           <input
             className="px-4 py-2 fs-6 rounded-3 border-3 border-black border-opacity-25  mb-3"
             type="password"
             name="password"
-            autoComplete={signUpData.password}
+            autoComplete="password"
             required
             placeholder="Enter your Password"
             value={signUpData.password}
@@ -111,7 +123,7 @@ const SignUp = () => {
             className="px-4 py-2 fs-6 rounded-3 border-3 border-black border-opacity-25  mb-3"
             type="password"
             name="confirmPassword"
-            autoComplete={signUpData.confirmPassword}
+            autoComplete="confirmPassword"
             onChange={handleChange}
             value={signUpData.confirmPassword}
             required

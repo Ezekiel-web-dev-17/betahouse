@@ -18,8 +18,9 @@ const Login = () => {
     try {
       e.preventDefault();
       const res = await api.post("/sign-in", logInData);
-      const { token, user } = res.data;
+      const { user } = res.data;
       const { firstname, lastname } = user;
+      localStorage.clear;
       localStorage.setItem("firstName", firstname);
       localStorage.setItem("lastName", lastname);
     } catch (e) {

@@ -12,15 +12,15 @@ export function ApiProvider({ children }) {
     },
   });
 
-  // Automatically attach token from localStorage, if present
-  api.interceptors.request.use(
-    (config) => {
-      const token = localStorage.getItem("auth-token");
-      if (token) config.headers.Authorization = `Bearer ${token}`;
-      return config;
-    },
-    (error) => Promise.reject(error)
-  );
+  // // Automatically attach token from localStorage, if present
+  // api.interceptors.request.use(
+  //   (config) => {
+  //     const token = localStorage.getItem("auth-token");
+  //     if (token) config.headers.Authorization = `Bearer ${token}`;
+  //     return config;
+  //   },
+  //   (error) => Promise.reject(error)
+  // );
 
   return <ApiContext.Provider value={api}>{children}</ApiContext.Provider>;
 }

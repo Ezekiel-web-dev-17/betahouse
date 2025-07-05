@@ -5,9 +5,12 @@ import line from "../../utils/Line 7.svg";
 const Header = () => {
   return (
     <header className=" d-flex flex-column align-items-center justify-content-center gap-5">
-      <h1 className=" text-white mb-0">Browse Our Properties</h1>
+      <h1 className="display-5 fw-semibold text-white mb-0">
+        Find Your Next Home With Ease.
+      </h1>
       <p className="find-txt mb-0">
-        Find your perfect home among our curated properties. Start browsing now!
+        <strong>Buy and Rent Properties.</strong> Connect with trusted agents
+        and real homeowners across Nigeria — all in one place.
       </p>
       <section className="hero rounded-3 ps-sm-5 px-3 px-sm-0 m-3">
         <div>
