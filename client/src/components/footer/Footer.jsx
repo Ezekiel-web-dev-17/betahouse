@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../utils/bhlogo.png";
 import { Link } from "react-router-dom";
 import { GrMail } from "react-icons/gr";
@@ -18,9 +17,8 @@ const Footer = () => {
             Living. Beta Deals. Beta Agents. Beta House. No Wahala. Just Homes.
           </p>
 
-          <span className="mb-5">
-            {/* <strong className="fs-4">BetaHouse</strong> */}
-            <img src={logo} alt="" width="26%" /> — Na Your New House Be This.
+          <span className="mb-5 motto">
+            <img src={logo} alt="" /> — Na Your New House Be This.
           </span>
 
           <div className="contact">
@@ -49,23 +47,23 @@ const Footer = () => {
               </Link>
               <Link
                 className=" text-decoration-none text-white"
-                to="properties"
+                to="/properties"
               >
                 <li style={{ fontSize: "14px" }} className="list-unstyled">
                   Properties
                 </li>
               </Link>
-              <Link className=" text-decoration-none text-white" to="about">
+              <Link className=" text-decoration-none text-white" to="/about">
                 <li style={{ fontSize: "14px" }} className="list-unstyled">
                   About
                 </li>
               </Link>
-              <Link className=" text-decoration-none text-white" to="contact">
+              <Link className=" text-decoration-none text-white" to="/contact">
                 <li style={{ fontSize: "14px" }} className="list-unstyled">
                   Contact us
                 </li>
               </Link>
-              <Link className=" text-decoration-none text-white" to="blog">
+              <Link className=" text-decoration-none text-white" to="/blog">
                 <li style={{ fontSize: "14px" }} className="list-unstyled">
                   Blog
                 </li>
@@ -87,7 +85,7 @@ const Footer = () => {
               >
                 Affordable Houses
               </li>
-              <Link to="/faqs">
+              <Link className="text-decoration-none text-white" to="/faqs">
                 <li
                   style={{ fontSize: "14px" }}
                   className="list-unstyled  text-white"

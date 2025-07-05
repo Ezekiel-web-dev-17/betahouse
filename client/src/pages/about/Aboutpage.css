@@ -2,3 +2,22 @@
 .about-us h3 {
   color: #3d9970;
 }
+
+.min-img {
+  display: flex;
+}
+
+@media (max-width: 375px) {
+  .about-us .lead {
+    font-size: 1.15em;
+  }
+
+  .about-us p,
+  .about-us .text-center,
+  .about-us ul {
+    font-size: 0.8em;
+  }
+  .min-img {
+    display: none;
+  }
+}
