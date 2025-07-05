@@ -23,7 +23,8 @@
 }
 
 @media (max-width: 375px) {
-  .first input {
+  .first input,
+  .last input {
     width: 100%;
   }
 

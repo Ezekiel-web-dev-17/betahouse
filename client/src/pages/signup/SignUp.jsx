@@ -7,6 +7,8 @@ import line13 from "../../utils/Line 13.svg";
 import line16 from "../../utils/Line 16.svg";
 import logo from "../../utils/bhlogo.png";
 import { ApiContext } from "../../context/AxiosContext.jsx";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const SignUp = () => {
   const api = useContext(ApiContext);
@@ -139,22 +141,15 @@ const SignUp = () => {
           <p className="mb-0 text-black">or</p>
           <img src={line16} alt="" />
         </div>
-        <button
-          type="submit"
-          className="google d-flex justify-content-center align-items-center gap-3 rounded-4 py-sm-3 py-2  border-2 border-black border-opacity-75 w-75 fs-5 mb-4"
-        >
-          <img src={googleImg} alt="" />
-          <p
-            className="mb-0"
-            style={{
-              textWrap: "nowrap",
-              fontFamily: "Outfit",
-              fontSize: "22px",
-            }}
-          >
-            Continue with Google
-          </p>
-        </button>
+        <GoogleLogin
+          text="signup_with"
+          onSuccess={(credentialResponse) => {
+            console.log(jwtDecode(credentialResponse.credential));
+            navigate("/");
+          }}
+          onError={() => alert("Login Failed")}
+          auto_select={true}
+        />
 
         <p style={{ color: "#716F6F", placeSelf: "center", fontSize: "18px" }}>
           Already have an account?{" "}

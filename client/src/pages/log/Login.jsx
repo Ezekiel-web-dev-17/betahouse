@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import googleImg from "../../utils/🦆 icon _google_.png";
 import signupbg from "../../utils/signupbg.png";
 import line13 from "../../utils/Line 13.svg";
 import line16 from "../../utils/Line 16.svg";
 import logo from "../../utils/bhlogo.png";
 import "./Login.css";
 import { ApiContext } from "../../context/AxiosContext";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const api = useContext(ApiContext);
@@ -87,7 +88,7 @@ const Login = () => {
             className=" rounded-4 py-sm-3 py-2 border-0 text-white fs-5"
             style={{ backgroundColor: "#3d9970" }}
           >
-            Sign up
+            Sign in
           </button>
         </form>
 
@@ -97,22 +98,15 @@ const Login = () => {
           <img src={line16} alt="" />
         </div>
 
-        <button
-          type="submit"
-          className="d-flex justify-content-center align-items-center gap-3 rounded-4 py-sm-3 py-2 border-2 border-black border-opacity-75 w-75 fs-5 mb-4"
-        >
-          <img src={googleImg} alt="" />
-          <p
-            className="mb-0"
-            style={{
-              fontFamily: "Outfit",
-              fontSize: "22px",
-              lineHeight: "100%",
-            }}
-          >
-            Continue with Google
-          </p>
-        </button>
+        <GoogleLogin
+          text="signin_with"
+          onSuccess={(credentialResponse) => {
+            console.log(jwtDecode(credentialResponse.credential));
+            navigate("/");
+          }}
+          onError={() => alert("Login Failed")}
+          auto_select={true}
+        />
 
         <p className="new" style={{ placeSelf: "center", fontSize: "18px" }}>
           New User?{" "}
