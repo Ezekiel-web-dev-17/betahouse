@@ -87,12 +87,14 @@ const Footer = () => {
               >
                 Affordable Houses
               </li>
-              <li
-                style={{ fontSize: "14px" }}
-                className="list-unstyled  text-white"
-              >
-                FAQ's
-              </li>
+              <Link to="/faqs">
+                <li
+                  style={{ fontSize: "14px" }}
+                  className="list-unstyled  text-white"
+                >
+                  FAQ's
+                </li>
+              </Link>
             </ul>
           </div>
           <div className="">

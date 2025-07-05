@@ -14,6 +14,7 @@ import EachHoouse from "./pages/eachHouse/EachHoouse.jsx";
 import CartPage from "./pages/cartpg/CartPage.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import Faq from "./pages/faq/Faq.jsx";
 // https://betahousebackend2.onrender.com/api/v1/auth/sign-{up || in}
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Route path="/properties" element={<Properties />} />
               <Route path="/house/:id" element={<EachHoouse />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/faqs" element={<Faq />} />
             </Route>
             <Route element={<AuthLayout />}>
               <Route path="/sign-in" element={<Login />} />
