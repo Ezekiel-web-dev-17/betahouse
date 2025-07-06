@@ -46,7 +46,12 @@ const Showcase = ({ currentPage }) => {
       behavior: "smooth",
       block: "start",
     });
-    lessRef.current.style.height = `1567px`;
+
+    if (window.innerWidth <= 375) {
+      lessRef.current.style.height = `4000px`;
+    } else {
+      lessRef.current.style.height = `1567px`;
+    }
   };
 
   return (
@@ -130,7 +135,7 @@ const Showcase = ({ currentPage }) => {
                   <div className="about-card p-3 border-1 rounded-bottom-4 d-flex align-items-start flex-column">
                     <h4 className=" mb-0">{show.title}</h4>
                     <p
-                      className="mb-3"
+                      className="mb-sm-3 mb-1"
                       style={{ color: "#666666", font: "Outfit" }}
                     >
                       {<BsFillGeoAltFill />} {show.location}
@@ -152,7 +157,7 @@ const Showcase = ({ currentPage }) => {
                     <div className=" w-100 d-flex justify-content-between align-items-center border-top border-dark-subtle border-1 mt-3 pt-4">
                       <h4 className="mb-0">
                         ₦ {show.price}
-                        {i % 2 === 0 ? "/1 Year" : ""}
+                        {i % 2 === 0 ? "/1 yr" : ""}
                       </h4>
                       <img src={arrowToFro} alt="" />
                       <BsShare />
@@ -218,7 +223,7 @@ const Showcase = ({ currentPage }) => {
                   <div className="about-card p-3 border-1 rounded-bottom-4 d-flex align-items-start flex-column">
                     <h4 className=" mb-0">{show.title}</h4>
                     <p
-                      className="mb-3"
+                      className="mb-sm-3 mb-1"
                       style={{ color: "#666666", font: "Outfit" }}
                     >
                       {<BsFillGeoAltFill />} {show.location}
@@ -276,8 +281,22 @@ const Showcase = ({ currentPage }) => {
               }}
               alt="left arrow"
             />
-            <h4 className="mb-0">1</h4>
-            <h4 className="mb-0">2</h4>
+            <h4
+              className="mb-0 rounded-circle border-2 border border-success px-3 py-2"
+              onClick={() => {
+                handleLeft();
+              }}
+            >
+              1
+            </h4>
+            <h4
+              className="mb-0 rounded-circle border-2 border border-success px-3 py-2"
+              onClick={() => {
+                handleRight();
+              }}
+            >
+              2
+            </h4>
             <img
               onClick={() => {
                 handleRight();
