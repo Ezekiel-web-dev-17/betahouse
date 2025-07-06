@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const Showcase = ({ currentPage }) => {
   let cardWidth;
-  window.innerWidth >= 375 ? (cardWidth = 485) : (cardWidth = 1320);
+  window.innerWidth <= 375 ? (cardWidth = 480) : (cardWidth = 1320);
   const [showSort, setShowSort] = useState(shows);
   const [from, setFrom] = useState(1);
   const less = showSort.slice(0, 9);
@@ -46,9 +46,6 @@ const Showcase = ({ currentPage }) => {
       behavior: "smooth",
       block: "start",
     });
-    if (window.innerWidth >= 375) {
-      containerRef.current.height = `2000px`;
-    }
     lessRef.current.style.height = `1567px`;
   };
 
@@ -142,13 +139,13 @@ const Showcase = ({ currentPage }) => {
                       className="d-flex justify-content-between w-100 pe-5"
                       style={{ color: "#666666", font: "Outfit" }}
                     >
-                      <span className="d-flex justify-content-between gap-2">
+                      <span className="d-flex justify-content-between gap-2 me-sm-0 me-4">
                         <img src={bed} alt="" />
-                        <p className="mb-0">{show.bed} Bedrooms</p>
+                        <p className="mb-0 abt">{show.bed} Bedrooms</p>
                       </span>
                       <span className="d-flex justify-content-between gap-2 me-5">
                         <img src={bathroom} alt="" />
-                        <p className="mb-0">{show.bath} Bathrooms</p>
+                        <p className="mb-0 abt">{show.bath} Bathrooms</p>
                       </span>
                     </div>
 
@@ -167,21 +164,23 @@ const Showcase = ({ currentPage }) => {
             ))}
           </div>
           <div
-            className={`d-sm-grid grd2 ${
-              currentPage === "Home" ? "d-none" : "d-flex flex-column"
-            } mt-4 ms-3`}
+            className={`d-sm-grid ${
+              currentPage === "Home" && window.innerWidth <= 375
+                ? "d-none"
+                : "d-flex flex-column"
+            } mt-4 ms-sm-5 ms-3`}
             style={{ maxHeight: "fit-content" }}
           >
             {more.map((show, i) => (
-              <div key={i} className="ms-3">
+              <div key={i} className="ms-3 ms-sm-0">
                 <Link
                   to={`/house/:${i + 10}`}
-                  className="less text-decoration-none"
+                  className="less  text-decoration-none"
                 >
                   <div ref={moreRef} className="more position-relative">
                     <img
                       src={show.image}
-                      className="rounded-top-4 photo2"
+                      className="rounded-top-4 photo photo2"
                       alt=""
                     />
                     <div>
@@ -225,16 +224,16 @@ const Showcase = ({ currentPage }) => {
                       {<BsFillGeoAltFill />} {show.location}
                     </p>
                     <div
-                      className="d-flex justify-content-between w-100 pe-5"
+                      className="d-flex justify-content-between w-100 pe-sm-5 pe-0"
                       style={{ color: "#666666", font: "Outfit" }}
                     >
-                      <span className="d-flex justify-content-between gap-2">
+                      <span className="d-flex justify-content-between gap-2 me-sm-0 me-4">
                         <img src={bed} alt="" />
-                        <p className="mb-0">{show.bed} Bedrooms</p>
+                        <p className="mb-0 abt">{show.bed} Bedrooms</p>
                       </span>
                       <span className="d-flex justify-content-between gap-2 me-5">
                         <img src={bathroom} alt="" />
-                        <p className="mb-0">{show.bath} Bathrooms</p>
+                        <p className="mb-0 abt">{show.bath} Bathrooms</p>
                       </span>
                     </div>
 

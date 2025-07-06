@@ -95,6 +95,7 @@
     width: 80%;
     padding-inline-start: 1.7em;
   }
+
   .photo {
     max-width: 100%;
     max-height: 234px;
@@ -107,5 +108,9 @@
 
   .link-rec-img {
     left: 50%;
+  }
+
+  .abt {
+    text-wrap: nowrap;
   }
 }
