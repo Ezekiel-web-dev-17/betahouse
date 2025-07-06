@@ -12,8 +12,9 @@ import shows from "../../showapi.js";
 import Dropdown from "../dropdown/Dropdown.jsx";
 import { Link } from "react-router-dom";
 
-const Showcase = () => {
-  const cardWidth = 1320;
+const Showcase = ({ currentPage }) => {
+  let cardWidth;
+  window.innerWidth >= 375 ? (cardWidth = 485) : (cardWidth = 1320);
   const [showSort, setShowSort] = useState(shows);
   const [from, setFrom] = useState(1);
   const less = showSort.slice(0, 9);
@@ -45,19 +46,29 @@ const Showcase = () => {
       behavior: "smooth",
       block: "start",
     });
+    if (window.innerWidth >= 375) {
+      containerRef.current.height = `2000px`;
+    }
     lessRef.current.style.height = `1567px`;
   };
 
   return (
-    <div className="px-5 pt-4">
-      <Dropdown
-        from={from}
-        shows={shows}
-        showSort={showSort}
-        setShowSort={setShowSort}
-        to={to}
-      />
-
+    <div className="px-sm-5 pt-4">
+      {currentPage === "Home" ? (
+        <div>
+          <h3 className="fw-bold" style={{ color: "#3d9970" }}>
+            Our Properties
+          </h3>
+        </div>
+      ) : (
+        <Dropdown
+          from={from}
+          shows={shows}
+          showSort={showSort}
+          setShowSort={setShowSort}
+          to={to}
+        />
+      )}
       <div
         className=" overall overflow-hidden"
         ref={containerRef}
@@ -71,9 +82,12 @@ const Showcase = () => {
             transition: "transform 0.5s ease-in-out",
           }}
         >
-          <div ref={lessRef} className=" d-grid col-3 mt-4 ms-1">
+          <div
+            ref={lessRef}
+            className=" d-sm-grid d-flex flex-column mt-4 ms-1"
+          >
             {less.map((show, i) => (
-              <div key={i} className="">
+              <div key={i} className="less-inner-con">
                 <Link
                   to={`/house/:${i + 1}`}
                   className="less text-decoration-none"
@@ -81,9 +95,7 @@ const Showcase = () => {
                   <div className=" position-relative">
                     <img
                       src={show.image}
-                      className="rounded-top-4"
-                      width="396px"
-                      height="297px"
+                      className="rounded-top-4 photo"
                       alt=""
                     />
                     <div>
@@ -155,7 +167,9 @@ const Showcase = () => {
             ))}
           </div>
           <div
-            className=" d-grid grd2 col-3 mt-4"
+            className={`d-sm-grid grd2 ${
+              currentPage === "Home" ? "d-none" : "d-flex flex-column"
+            } mt-4 ms-3`}
             style={{ maxHeight: "fit-content" }}
           >
             {more.map((show, i) => (
@@ -167,9 +181,7 @@ const Showcase = () => {
                   <div ref={moreRef} className="more position-relative">
                     <img
                       src={show.image}
-                      className="rounded-top-4"
-                      width="396px"
-                      height="297px"
+                      className="rounded-top-4 photo2"
                       alt=""
                     />
                     <div>
@@ -240,28 +252,42 @@ const Showcase = () => {
         </div>
       </div>
       <div
-        className=" d-flex align-items-center gap-3 justify-content-center mt-3"
+        className=" d-flex align-items-center gap-3 justify-content-center mt-3 mb-4"
         style={{ cursor: "pointer" }}
       >
-        <img
-          src={right}
-          style={{ transform: "rotateY(180deg)" }}
-          onClick={() => {
-            handleLeft();
-            console.log(translate);
-          }}
-          alt="left arrow"
-        />
-        <h4 className="mb-0">1</h4>
-        <h4 className="mb-0">2</h4>
-        <img
-          onClick={() => {
-            handleRight();
-            console.log(translate);
-          }}
-          src={right}
-          alt="right arrow"
-        />
+        {currentPage === "Home" ? (
+          <Link
+            to="/properties"
+            className="fs-4 fw-semibold"
+            style={{
+              textDecorationStyle: "dashed",
+              textDecorationThickness: "4px",
+              textUnderlineOffset: "5px",
+            }}
+          >
+            Click For More Properties.
+          </Link>
+        ) : (
+          <>
+            <img
+              src={right}
+              style={{ transform: "rotateY(180deg)" }}
+              onClick={() => {
+                handleLeft();
+              }}
+              alt="left arrow"
+            />
+            <h4 className="mb-0">1</h4>
+            <h4 className="mb-0">2</h4>
+            <img
+              onClick={() => {
+                handleRight();
+              }}
+              src={right}
+              alt="right arrow"
+            />
+          </>
+        )}
       </div>
     </div>
   );

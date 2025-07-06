@@ -46,7 +46,7 @@ const Homepage = () => {
       <Header />
       <main>
         <section>
-          <Showcase />
+          <Showcase currentPage={"Home"} />
         </section>
         <section className="discover-sect mb-5 pb-5">
           <h2 className="mt-3 pt-3  pb-3 mb-5" style={{ color: "#3d9970" }}>

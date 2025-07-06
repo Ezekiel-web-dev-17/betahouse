@@ -1,18 +1,23 @@
-import React from "react";
 import icon from "../../utils/Icon (1).svg";
 import "./Dropdown.css";
 
 const Dropdown = ({ from, shows, showSort, setShowSort, to }) => {
   return (
-    <div className=" d-flex justify-content-between">
+    <div className=" d-flex flex-sm-row flex-column justify-content-between">
       <span className="d-flex">
-        <img width="25px" height="25px" src={icon} alt="" />
-        <h5 className="ps-2">More Filter</h5>
-        <h5 className="ps-4">
+        <img
+          className="d-sm-block d-none"
+          width="25px"
+          height="25px"
+          src={icon}
+          alt=""
+        />
+        <h5 className="ps-2 d-sm-block d-none">More Filter</h5>
+        <h5 className="ps-4 ms-sm-0 ms-4" style={{ textWrap: "nowrap" }}>
           Showing {from} - {to} of 15 results
         </h5>
       </span>
-      <span className="d-flex gap-2 align-items-center ">
+      <span className="d-flex gap-2 align-items-center ms-sm-0 ms-5">
         <p className="mb-0 fs-5 text-black-50 fw-medium">Sort by:</p>
 
         <select
