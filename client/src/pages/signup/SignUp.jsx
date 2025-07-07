@@ -5,14 +5,13 @@ import signupbg from "../../utils/signupbg.png";
 import line13 from "../../utils/Line 13.svg";
 import line16 from "../../utils/Line 16.svg";
 import logo from "../../utils/bhlogo.png";
-// import { ApiContext } from "../../context/AxiosContext.jsx";
+import { ApiContext } from "../../context/AxiosContext.jsx";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import axios from "axios";
 import { v4 as uuidv4 } from "uuid"; // Importing uuid for generating random passwords
 
 const SignUp = () => {
-  // const api = useContext(ApiContext);
+  const api = useContext(ApiContext);
   const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({
     firstname: "",
@@ -29,10 +28,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     try {
-      await axios.post(
-        "https://betahousebackend2.onrender.com/api/v1/auth/sign-up",
-        signUpData
-      );
+      await api.post("/sign-up", signUpData);
       console.log("Sign-up successful.");
       navigate("/sign-in");
     } catch (error) {
@@ -163,10 +159,7 @@ const SignUp = () => {
               password: uuidv4(),
             };
             try {
-              const res = await axios.post(
-                "https://betahousebackend2.onrender.com/api/v1/auth/sign-up",
-                data
-              );
+              const res = await api.post("/sign-up", data);
 
               console.log(res.data.data.user);
 

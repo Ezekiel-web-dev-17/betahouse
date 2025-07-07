@@ -21,15 +21,13 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await api.post(
-        "https://betahousebackend2.onrender.com/api/v1/auth/sign-in",
-        logInData
-      );
+      const res = await api.post("/sign-in", logInData);
       const { firstname, lastname, email } = res.data.data.user;
       localStorage.clear;
       localStorage.setItem("firstName", firstname);
       localStorage.setItem("lastName", lastname);
       localStorage.setItem("userEmail", email);
+      localStorage.setItem("token", res.data.data.token);
       navigate("/");
     } catch (e) {
       setError(e.response || "Something went wrong. Please try again later.");
@@ -118,16 +116,14 @@ const Login = () => {
               // Indicating this is a Google sign-in
             };
             try {
-              const res = await api.post(
-                "https://betahousebackend2.onrender.com/api/v1/auth/sign-in",
-                data
-              );
+              const res = await api.post("/sign-in", data);
 
               const { firstname, lastname, email } = res.data.data.user;
               localStorage.clear;
               localStorage.setItem("firstName", firstname);
               localStorage.setItem("lastName", lastname);
               localStorage.setItem("userEmail", email);
+              localStorage.setItem("token", res.data.data.token);
               navigate("/");
             } catch (error) {
               if (error?.response?.status === 404) {
