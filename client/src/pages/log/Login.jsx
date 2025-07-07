@@ -13,23 +13,28 @@ const Login = () => {
   const api = useContext(ApiContext);
   const navigate = useNavigate();
   const [logInData, setLoginInData] = useState({ email: "", password: "" });
-
-  const handleSubmit = async () => {
-    try {
-      e.preventDefault();
-      const res = await api.post("/sign-in", logInData);
-      const { user } = res.data;
-      const { firstname, lastname } = user;
-      localStorage.clear;
-      localStorage.setItem("firstName", firstname);
-      localStorage.setItem("lastName", lastname);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setLoginInData({ ...logInData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const res = await api.post(
+        "https://betahousebackend2.onrender.com/api/v1/auth/sign-in",
+        logInData
+      );
+      const { firstname, lastname, email } = res.data.data.user;
+      localStorage.clear;
+      localStorage.setItem("firstName", firstname);
+      localStorage.setItem("lastName", lastname);
+      localStorage.setItem("userEmail", email);
+      navigate("/");
+    } catch (e) {
+      setError(e.response || "Something went wrong. Please try again later.");
+      console.error("Error during sign-up:", e);
+    }
   };
 
   return (
@@ -37,9 +42,10 @@ const Login = () => {
       <div className="login-content d-flex  flex-column align-items-center">
         <form
           action=""
-          onSubmit={() => {
+          onSubmit={(e) => {
+            e.preventDefault();
+            setError("");
             handleSubmit();
-            navigate("/");
           }}
           className="signup-form mx-sm-5 my-3 pe-sm-4 text-start d-flex flex-column gap-2"
         >
@@ -49,6 +55,8 @@ const Login = () => {
           <p className="mb-4 fw-medium text-black-75 ">
             Lets get started by filling out the information below
           </p>
+          <p className=" text-danger fs-5">{error}</p>
+
           <label htmlFor="">Email</label>
           <input
             className="px-sm-4 py-sm-3 py-2 px-3 fs-6 rounded-3 border-3 border-black border-opacity-25 mb-3"
@@ -101,9 +109,38 @@ const Login = () => {
 
         <GoogleLogin
           text="signin_with"
-          onSuccess={(credentialResponse) => {
-            console.log(jwtDecode(credentialResponse.credential));
-            navigate("/");
+          onSuccess={async (credentialResponse) => {
+            const userInfo = jwtDecode(credentialResponse.credential);
+            console.log("Info:", userInfo);
+            const data = {
+              email: userInfo.email,
+              email_verified: userInfo.email_verified,
+              // Indicating this is a Google sign-in
+            };
+            try {
+              const res = await api.post(
+                "https://betahousebackend2.onrender.com/api/v1/auth/sign-in",
+                data
+              );
+
+              const { firstname, lastname, email } = res.data.data.user;
+              localStorage.clear;
+              localStorage.setItem("firstName", firstname);
+              localStorage.setItem("lastName", lastname);
+              localStorage.setItem("userEmail", email);
+              navigate("/");
+            } catch (error) {
+              if (error?.response?.status === 404) {
+                setError("User not found. Please sign up first.");
+                return;
+              }
+              console.error("Error during Google login:", error);
+              setError(
+                error?.response?.data?.error ||
+                  "Login failed. Please try again."
+              );
+              return;
+            }
           }}
           onError={() => alert("Login Failed")}
           auto_select={true}

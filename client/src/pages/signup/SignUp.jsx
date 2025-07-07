@@ -9,6 +9,7 @@ import logo from "../../utils/bhlogo.png";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid"; // Importing uuid for generating random passwords
 
 const SignUp = () => {
   // const api = useContext(ApiContext);
@@ -28,20 +29,18 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     try {
-      console.table(signUpData);
-      console.log(signUpData);
-      const response = await axios.post(
+      await axios.post(
         "https://betahousebackend2.onrender.com/api/v1/auth/sign-up",
         signUpData
       );
-      console.log("Sign-up successful:", response.data.user);
+      console.log("Sign-up successful.");
       navigate("/sign-in");
     } catch (error) {
       setError(
         error.response?.data?.message ||
           "Something went wrong. Please try again later."
       );
-      console.error("Error during sign-up:", error);
+      console.error("Error during sign-up:", error?.response?.data || error);
     }
   };
 
@@ -155,11 +154,49 @@ const SignUp = () => {
         </div>
         <GoogleLogin
           text="signup_with"
-          onSuccess={(credentialResponse) => {
-            console.log(jwtDecode(credentialResponse.credential));
-            navigate("/");
+          onSuccess={async (credentialResponse) => {
+            const userInfo = jwtDecode(credentialResponse.credential);
+            const data = {
+              firstname: userInfo.given_name,
+              lastname: userInfo.family_name,
+              email: userInfo.email,
+              password: uuidv4(),
+            };
+            try {
+              const res = await axios.post(
+                "https://betahousebackend2.onrender.com/api/v1/auth/sign-up",
+                data
+              );
+
+              console.log(res.data.data.user);
+
+              const { firstname, lastname, email } = res.data.data.user;
+              localStorage.clear();
+              localStorage.setItem("firstName", firstname);
+              localStorage.setItem("lastName", lastname);
+              localStorage.setItem("userEmail", email);
+              navigate("/");
+            } catch (error) {
+              if (error.response?.status === 409) {
+                setError("User already exists. Please sign in.");
+                navigate("/sign-in");
+                return;
+              }
+              setError(
+                error.response?.data?.message ||
+                  "Something went wrong. Please try again later."
+              );
+              console.error(
+                "Error during sign-up:",
+                error?.response?.data || error
+              );
+            }
           }}
-          onError={() => alert("Login Failed")}
+          onError={(e) =>
+            setError(
+              e?.response?.data?.error || "Login failed. Please try again."
+            )
+          }
           auto_select={true}
         />
 

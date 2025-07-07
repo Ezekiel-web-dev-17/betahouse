@@ -56,12 +56,12 @@ const NavBar = () => {
         </ul>
 
         <div className="cart-user d-flex gap-4 align-items-center">
-          {firstname && lastname === null ? (
+          {firstname && lastname != null ? (
             <>
               <div className="d-flex gap-4 align-items-center">
                 <BsPersonCircle className=" text-white fs-4" />
                 <p className="mb-0 text-white me-sm-0 me-4">
-                  {firstname} {lastname}
+                  {firstname.toUpperCase()}
                 </p>
 
                 <CartIcon />
